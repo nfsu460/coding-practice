@@ -78,12 +78,47 @@ Returns:
 - Reversing the segment from position (1, 2), the list is `9->2`
 
 ```Java
-import java.io.*;
-import java.util.*;
+class Result {
+    public static SinglyLinkedList reversingLinkedList(SinglyLinkedList head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
 
-class Result{
-	public static SinglyLinkedList reversingLinkedList(SinglyLinkedList head){
-		// Write your code here
-	}
+        SinglyLinkedList curr = head;
+        int count = 0;
+
+        while (curr != null) {
+            count++;
+            curr = curr.next;
+        }
+
+        for (int i = 0; i < count / 2; i++) {
+            if (i % 2 == 0) {
+                swapNodes(head, i, count);
+            }
+        }
+        return head;
+    }
+
+    public static void swapNodes(SinglyLinkedList head, int k, int size) {
+        SinglyLinkedList first = head;
+        SinglyLinkedList last = head;
+
+        if (size < k) {
+            return;
+        }
+
+        for (int i = 0; i < k; i++) {
+            first = first.next;
+        }
+
+        for (int i = 0; i < size - k - 1; i++) {
+            last = last.next;
+        }
+
+        int temp = first.val;
+        first.val = last.val;
+        last.val = temp;
+    }
 }
 ```
