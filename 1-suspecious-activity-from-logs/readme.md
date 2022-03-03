@@ -74,12 +74,33 @@ Only user 7 has 3 or more transactions.
 The return array is ["7"]
 
 ```Java
-import java.io.*;
-import java.util.*;
+class Result {
+    public static List<String> processLogs(List<String> logs, int threshold) {
+        List<String> result = new ArrayList<>();
+        HashMap<String, Integer> hm = new HashMap<>();
 
-class Result{
-	public static List<String> processLogs(List<String> logs, int threshold){
-		// Write your code here
-	}
+        for (String log : logs) {
+            String[] logArr = log.split(" ");
+            hm.put(logArr[0], hm.getOrDefault(logArr[0], 0) + 1);
+
+            if (!logArr[0].equals(logArr[1])) {
+                hm.put(logArr[1], hm.getOrDefault(logArr[1], 0) + 1);
+            }
+        }
+
+        for (Map.Entry<String, Integer> entry : hm.entrySet()) {
+            if (entry.getValue() >= threshold) {
+                result.add(entry.getKey());
+            }
+        }
+        Collections.sort(result, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.parseInt(o1) - Integer.parseInt(o2);
+            }
+        });
+
+        return result;
+    }
 }
 ```
