@@ -28,11 +28,9 @@ class Result {
 
         for (String log : logs) {
             String[] logArr = log.split(" ");
+            hm.put(logArr[0], hm.getOrDefault(logArr[0], 0) + 1);
 
-            if (logArr[0].equals(logArr[1])) {
-                hm.put(logArr[0], hm.getOrDefault(logArr[0], 0) + 1);
-            } else {
-                hm.put(logArr[0], hm.getOrDefault(logArr[0], 0) + 1);
+            if (!logArr[0].equals(logArr[1])) {
                 hm.put(logArr[1], hm.getOrDefault(logArr[1], 0) + 1);
             }
         }
