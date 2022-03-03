@@ -63,6 +63,7 @@ Returns:
 |7|4|
 |22|2|
 |33|1|
+
 Only user 7 has 3 or more transactions.
 The return array is ["7"] 
 
