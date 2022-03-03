@@ -23,6 +23,7 @@ The transactions count for each user, regardless of role are:
 |88|2|
 |12|1|
 |32|1|
+
 There are two users with at least threshold = 2 transactions: 99 and 88. In ascending order, the return array is ['88', '99'].
 
 **Note:** In the last log entry, user 12 was on both sides of the transaction. This counts as only 1 transaction for user 12.
