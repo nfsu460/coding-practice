@@ -71,7 +71,7 @@ distinct element pairs that share the minimum absolute difference, displayed in 
 ```
 
 **Explanation**
-\*Initially, numbers = [2, 2, 2]. Because all of its elements are already equal, no moves are
+- Initially, numbers = [2, 2, 2]. Because all of its elements are already equal, no moves are
 required.
 
 ```Java
