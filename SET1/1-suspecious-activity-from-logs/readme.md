@@ -71,7 +71,7 @@ The return array is ["7"]
 import java.io.*;
 import java.util.*;
 
-class Result{
+class solution.Result{
 	public static List<String> processLogs(List<String> logs, int threshold){
 		// Write your code here
 	}

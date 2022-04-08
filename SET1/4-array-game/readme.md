@@ -78,7 +78,7 @@ required.
 import java.io.*;
 import java.util.*;
 
-class Result{
+class solution.Result{
 	public static long countMoves(List<Integer> numbers){
 		// Write your code here
 	}

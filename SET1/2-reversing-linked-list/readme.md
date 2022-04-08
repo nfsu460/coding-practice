@@ -69,12 +69,13 @@ Returns:
 * Reversing the segment from position (1, 2), the list is `9->2`
 
 ```Java
-import java.io.*;
-import java.util.*;
 
-class Result{
-	public static SinglyLinkedList reversingLinkedList(SinglyLinkedList head){
-		// Write your code here
-	}
+
+import solution.SinglyLinkedList;
+
+class Result {
+    public static SinglyLinkedList reversingLinkedList(SinglyLinkedList head) {
+        // Write your code here
+    }
 }
 ```

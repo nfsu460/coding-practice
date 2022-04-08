@@ -65,7 +65,7 @@ distinct element pairs that share the minimum absolute difference, displayed in 
 import java.io.*;
 import java.util.*;
 
-class Result{
+class solution.Result{
 	public static void closestNumbers(List<Integer> numbers){
 		// Write your code here
 	}
