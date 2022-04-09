@@ -3,7 +3,10 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/SET1/1-suspecious-activity-from-logs/solution" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SET1/2-reversing-linked-list/solution" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SET1/3-closest-numbers/Solution" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SET1/4-array-game/Solution" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

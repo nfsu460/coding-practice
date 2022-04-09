@@ -12,7 +12,7 @@ Logs are given in no particular order. Write a function that returns an array of
 ### Example
 ```Java
 logs = ["88 99 200", "88 99 300", "99 32 100", "12 12 15"]
-threshold = 12
+threshold = 2
 ```
 
 The transactions count for each user, regardless of role are:

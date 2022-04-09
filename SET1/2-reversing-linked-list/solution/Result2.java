@@ -8,7 +8,7 @@ class SinglyLinkedList {
     }
 }
 
-class Result {
+class Result2 {
     public static SinglyLinkedList reversingLinkedList(SinglyLinkedList head) {
         SinglyLinkedList prev, slow, fast;
         prev = slow = fast = head;
