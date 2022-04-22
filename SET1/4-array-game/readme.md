@@ -71,16 +71,30 @@ distinct element pairs that share the minimum absolute difference, displayed in 
 ```
 
 **Explanation**
+
 - Initially, numbers = [2, 2, 2]. Because all of its elements are already equal, no moves are
-required.
+  required.
 
 ```Java
-import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
-class solution.Result{
-	public static long countMoves(List<Integer> numbers){
-		// Write your code here
-	}
+public class ArrayGame {
+    public static long countMoves(List<Integer> numbers) {
+        int min = numbers.get(0);
+        for (int num : numbers) min = Math.min(num, min);
+        long ans = 0;
+        for (int num : numbers) ans += num - min;
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {2, 2, 2};
+        ArrayList<Integer> input = new ArrayList<>();
+        for (int num : arr1) input.add(num);
+        System.out.println(countMoves(input));
+    }
 }
+
 ```
