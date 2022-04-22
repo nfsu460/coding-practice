@@ -45,7 +45,7 @@ Returns:
 
 **Constraints**
 
-- 1 ≤ n ≤ 10<sup>5</sup>
+- 1≤n≤ 105
 - 1 ≤ thresholds n
 - The `sender_user_id`, `recipient_user_id` and amount contain only characters in the range ascii['0'-'9'].
 - The `sender_user_id`, `recipient_user_id` and amount start with a non-zero digit.
@@ -55,52 +55,59 @@ Returns:
 **Sample Input**
 
 - n = 4
-- logs = ["9 7 50", "22 7 20", "33 7 50", "22 7 30"]
+- logs = ["9 750", "22 7 20", "33 7 50", "22 7 30"]
 - threshold = 3
 
 **Sample Output**
 7
 
 **Explanation**
-
-| ID  | Transactions |
-| --- | :----------: |
-| 9   |      1       |
-| 7   |      4       |
-| 22  |      2       |
-| 33  |      1       |
+|ID|Transactions|
+|-|:-:|
+|9|1|
+|7|4|
+|22|2|
+|33|1|
 
 Only user 7 has 3 or more transactions.
 The return array is ["7"]
 
 ```Java
-class Result {
+import java.util.*;
+
+class Result1 {
     public static List<String> processLogs(List<String> logs, int threshold) {
-        List<String> result = new ArrayList<>();
-        HashMap<String, Integer> hm = new HashMap<>();
-
+        HashMap<String, Integer> map = new HashMap<>();
+        List<String> ans = new ArrayList<>();
         for (String log : logs) {
-            String[] logArr = log.split(" ");
-            hm.put(logArr[0], hm.getOrDefault(logArr[0], 0) + 1);
+            String[] arr = log.split(" ");
 
-            if (!logArr[0].equals(logArr[1])) {
-                hm.put(logArr[1], hm.getOrDefault(logArr[1], 0) + 1);
+            int value1 = map.getOrDefault(arr[0], 0) + 1;
+            int value2 = map.getOrDefault(arr[1], 0) + 1;
+
+            map.put(arr[0], value1);
+            if (!arr[0].equals(arr[1])) {
+                map.put(arr[1], value2);
             }
         }
 
-        for (Map.Entry<String, Integer> entry : hm.entrySet()) {
-            if (entry.getValue() >= threshold) {
-                result.add(entry.getKey());
-            }
-        }
-        Collections.sort(result, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return Integer.parseInt(o1) - Integer.parseInt(o2);
-            }
+        map.forEach((k, v) -> {
+            if (v >= threshold) ans.add(k);
         });
 
-        return result;
+        Collections.sort(ans, (a, b) -> {
+            return Integer.valueOf(a) - Integer.valueOf(b);
+        });
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        String[] input = {"88 99 200", "88 99 300", "99 32 100", "12 12 15"};
+        String[] input1 = {"9 750", "22 7 20", "33 7 50", "22 7 30"};
+        ArrayList<String> al = new ArrayList<>();
+        for (String str : input1) al.add(str);
+        int th = 3;
+        System.out.println(processLogs(al, th));
     }
 }
 ```

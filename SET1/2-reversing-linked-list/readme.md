@@ -78,47 +78,83 @@ Returns:
 - Reversing the segment from position (1, 2), the list is `9->2`
 
 ```Java
-class Result {
+class SinglyLinkedList {
+    int data;
+    SinglyLinkedList next;
+
+    public SinglyLinkedList(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class Result2 {
     public static SinglyLinkedList reversingLinkedList(SinglyLinkedList head) {
-        if (head == null || head.next == null) {
-            return head;
+        SinglyLinkedList prev, slow, fast;
+        prev = slow = fast = head;
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        SinglyLinkedList curr = head;
-        int count = 0;
+        prev.next = null;
+        slow = reverse(slow);
 
-        while (curr != null) {
-            count++;
-            curr = curr.next;
-        }
+        SinglyLinkedList head1, head2;
+        head1 = head;
+        head2 = slow;
 
-        for (int i = 0; i < count / 2; i++) {
-            if (i % 2 == 0) {
-                swapNodes(head, i, count);
+        int n = 0;
+        while (head1 != null) {
+            if (n % 2 == 0) {
+                int temp = head1.data;
+                head1.data = head2.data;
+                head2.data = temp;
             }
+            head1 = head1.next;
+            head2 = head2.next;
+            n++;
         }
+
+        slow = reverse(slow);
+        prev.next = slow;
+
         return head;
     }
 
-    public static void swapNodes(SinglyLinkedList head, int k, int size) {
-        SinglyLinkedList first = head;
-        SinglyLinkedList last = head;
-
-        if (size < k) {
-            return;
+    private static SinglyLinkedList reverse(SinglyLinkedList head) {
+        SinglyLinkedList prev = null;
+        while (head != null) {
+            SinglyLinkedList temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
         }
+        return prev;
+    }
 
-        for (int i = 0; i < k; i++) {
-            first = first.next;
+    public static void main(String[] args) {
+        int[] arr = {1, 5, 2, 7, 8, 3};
+        SinglyLinkedList head, tail;
+        head = tail = new SinglyLinkedList(-1);
+        for (int num : arr) {
+            tail.next = new SinglyLinkedList(num);
+            tail = tail.next;
         }
+        head = head.next;
 
-        for (int i = 0; i < size - k - 1; i++) {
-            last = last.next;
+        display(reversingLinkedList(head));
+
+    }
+
+    private static void display(SinglyLinkedList node) {
+        System.out.print("[ ");
+        while (node != null) {
+            System.out.print(node.data + " ");
+            node = node.next;
         }
-
-        int temp = first.val;
-        first.val = last.val;
-        last.val = temp;
+        System.out.println("]");
     }
 }
 ```
