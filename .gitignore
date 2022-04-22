@@ -1,2 +1,7 @@
-.idea/
+# Editors
+.vscode
+.idea
+
+#Class File
+/**/*.class
 out/

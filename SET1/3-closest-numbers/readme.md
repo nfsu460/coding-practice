@@ -59,7 +59,8 @@ distinct element pairs that share the minimum absolute difference, displayed in 
 ```
 
 **Explanation**
-\*The minimum absolute difference between any two elements in the array is 1, and there are two such pairs: (-2, -1) and (3, 4).
+
+- The minimum absolute difference between any two elements in the array is 1, and there are two such pairs: (-2, -1) and (3, 4).
 
 ```Java
 import java.util.ArrayList;

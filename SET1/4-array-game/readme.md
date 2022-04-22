@@ -5,16 +5,17 @@ Given an array of integers, determine the number of moves to make all elements e
 **Example**
 numbers = [3, 4, 6, 6, 3]
 Choose 4 of the 5 elements during each move and increment each of their values by one. Indexing begins at 1. It takes 7 moves as follows:
-| Iteration | Array | Unchanged Element's Index |
-|:--:|:--:|:--:|
-| 0 | [3, 4, 6, 6, 3] | |
-| 1 | [4, 5, 7, 6, 4] | 3 |
-| 2 | [5, 6, 7, 7, 5] | 2 |
-| 3 | [6, 7, 8, 7, 6] | 3 |
-| 4 | [7, 8, 8, 8, 7] | 2 |
-| 5 | [8, 9, 9, 8, 8] | 3 |
-| 6 | [9, 9, 10, 9, 9] | 1 |
-| 7 | [10, 10, 10, 10, 10] | 2 |
+
+| Iteration |        Array         | Unchanged Element's Index |
+| :-------: | :------------------: | :-----------------------: |
+|     0     |   [3, 4, 6, 6, 3]    |                           |
+|     1     |   [4, 5, 7, 6, 4]    |             3             |
+|     2     |   [5, 6, 7, 7, 5]    |             2             |
+|     3     |   [6, 7, 8, 7, 6]    |             3             |
+|     4     |   [7, 8, 8, 8, 7]    |             2             |
+|     5     |   [8, 9, 9, 8, 8]    |             3             |
+|     6     |   [9, 9, 10, 9, 9]   |             1             |
+|     7     | [10, 10, 10, 10, 10] |             2             |
 
 **Function Description**
 Complete the function countMoves in the editor below.
